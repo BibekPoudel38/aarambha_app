@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:myapp/view/homepage.dart';
 import 'package:myapp/view/login.dart';
+import 'package:myapp/view/signup.dart';
 
 void main() {
+  HttpOverrides.global = MyHttpOverrides();
   runApp(const MyApp());
 }
 
@@ -17,7 +22,20 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
         primaryColor: Colors.deepOrange,
       ),
-      home: LoginPage(),
+      home: const LoginPage(),
+      routes: {
+        '/homepage': (_) => const Homepage(),
+        '/signup': (_) => const SignUpPage(),
+      },
     );
+  }
+}
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
   }
 }

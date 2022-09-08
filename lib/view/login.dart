@@ -1,7 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../controller/login_controller.dart';
 import '../utils/validators.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,6 +20,12 @@ class _LoginPageState extends State<LoginPage> {
   String gender = "Male";
   changeGender(value) {
     gender = value;
+    setState(() {});
+  }
+
+  bool visible = false;
+  togglePassword() {
+    visible = !visible;
     setState(() {});
   }
 
@@ -48,53 +54,69 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 10),
               const Text("Password"),
               TextFormField(
+                obscureText: visible,
                 controller: passwordController,
                 validator: passwordValidator,
-                decoration: const InputDecoration(hintText: "Enter password"),
+                decoration: InputDecoration(
+                  hintText: "Enter password",
+                  suffixIcon: IconButton(
+                    onPressed: togglePassword,
+                    icon:
+                        Icon(visible ? Icons.visibility_off : Icons.visibility),
+                  ),
+                ),
               ),
               const SizedBox(height: 10),
-              const Text("Confirm Password"),
-              TextFormField(
-                validator: (value) {
-                  if (value != passwordController.text) {
-                    return "Password didn't match";
-                  }
-                  return null;
+              // const Text("Confirm Password"),
+              // TextFormField(
+              //   validator: (value) {
+              //     if (value != passwordController.text) {
+              //       return "Password didn't match";
+              //     }
+              //     return null;
+              //   },
+              //   decoration: const InputDecoration(hintText: "Enter password"),
+              // ),
+              // const SizedBox(height: 10),
+              // Row(
+              //   children: [
+              //     Radio(
+              //       value: "Male",
+              //       groupValue: gender,
+              //       onChanged: changeGender,
+              //     ),
+              //     const Text("Male"),
+              //     Radio(
+              //       value: "Female",
+              //       groupValue: gender,
+              //       onChanged: changeGender,
+              //     ),
+              //     const Text("Female"),
+              //     Radio(
+              //       value: "Others",
+              //       groupValue: gender,
+              //       onChanged: changeGender,
+              //     ),
+              //     const Text("Others"),
+              //   ],
+              // ),
+              const SizedBox(height: 10),
+              GetBuilder<LoginController>(
+                init: LoginController(),
+                builder: (controller) {
+                  return ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        controller.login(
+                          usernameController.text.trim(),
+                          passwordController.text.trim(),
+                          context,
+                        );
+                      }
+                    },
+                    child: const Text("Login"),
+                  );
                 },
-                decoration: const InputDecoration(hintText: "Enter password"),
-              ),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  Radio(
-                    value: "Male",
-                    groupValue: gender,
-                    onChanged: changeGender,
-                  ),
-                  const Text("Male"),
-                  Radio(
-                    value: "Female",
-                    groupValue: gender,
-                    onChanged: changeGender,
-                  ),
-                  const Text("Female"),
-                  Radio(
-                    value: "Others",
-                    groupValue: gender,
-                    onChanged: changeGender,
-                  ),
-                  const Text("Others"),
-                ],
-              ),
-              const SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    log(usernameController.text);
-                    log(passwordController.text);
-                  }
-                },
-                child: const Text("Login"),
               ),
             ],
           ),
