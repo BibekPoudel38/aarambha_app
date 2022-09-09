@@ -5,6 +5,8 @@ import 'package:myapp/view/homepage.dart';
 import 'package:myapp/view/login.dart';
 import 'package:myapp/view/signup.dart';
 
+import 'view/splash.dart';
+
 void main() {
   HttpOverrides.global = MyHttpOverrides();
   runApp(const MyApp());
@@ -22,10 +24,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
         primaryColor: Colors.deepOrange,
       ),
-      home: const LoginPage(),
+      home: const SplashPage(),
       routes: {
         '/homepage': (_) => const Homepage(),
         '/signup': (_) => const SignUpPage(),
+        '/login': (_) => const LoginPage(),
       },
     );
   }
