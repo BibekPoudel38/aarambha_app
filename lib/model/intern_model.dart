@@ -1,4 +1,4 @@
-// To parse this JSON data, do
+// To parse required this JSON data, do
 //
 //     final internModel = internModelFromJson(jsonString);
 
@@ -25,6 +25,9 @@ class InternModel {
     required this.department,
     required this.supervisor,
     required this.updatedDate,
+    required this.dName,
+    required this.dIcon,
+    required this.departmentColor,
   });
 
   int id;
@@ -40,6 +43,9 @@ class InternModel {
   int department;
   int supervisor;
   DateTime updatedDate;
+  String dName;
+  String dIcon;
+  String departmentColor;
 
   factory InternModel.fromJson(Map<String, dynamic> json) => InternModel(
         id: json["id"],
@@ -55,6 +61,9 @@ class InternModel {
         department: json["department"],
         supervisor: json["supervisor"],
         updatedDate: DateTime.parse(json["updated_date"]),
+        dName: json["d_name"],
+        dIcon: json["d_icon"],
+        departmentColor: json["department_color"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -72,5 +81,8 @@ class InternModel {
         "department": department,
         "supervisor": supervisor,
         "updated_date": updatedDate.toIso8601String(),
+        "d_name": dName,
+        "d_icon": dIcon,
+        "department_color": departmentColor,
       };
 }

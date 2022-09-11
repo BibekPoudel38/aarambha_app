@@ -17,4 +17,13 @@ class RemoteService {
     var response = Dio().get(url);
     return response;
   }
+
+  Future<Response> fetchDepartments() async {
+    String url = "$baseUrl/api/read_departments.php";
+    var response = Dio().get(
+      url,
+    );
+
+    return response;
+  }
 }

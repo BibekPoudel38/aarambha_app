@@ -1,11 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:myapp/view/home.dart';
 import 'package:myapp/view/homepage.dart';
 import 'package:myapp/view/login.dart';
 import 'package:myapp/view/signup.dart';
-
-import 'view/splash.dart';
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
@@ -21,10 +20,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        primaryColor: Colors.deepOrange,
+        primarySwatch: Colors.deepPurple,
+        primaryColor: Colors.deepPurple,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+          titleTextStyle: TextStyle(
+            color: Colors.deepPurple,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
       ),
-      home: const SplashPage(),
+      home: const Home(),
       routes: {
         '/homepage': (_) => const Homepage(),
         '/signup': (_) => const SignUpPage(),
