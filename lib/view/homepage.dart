@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:myapp/controller/homepage_controller.dart';
 import 'package:myapp/model/departments_model.dart';
 import 'package:myapp/model/intern_model.dart';
+import 'package:myapp/view/detail_page.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -52,7 +53,9 @@ class Homepage extends StatelessWidget {
                                       height: 190,
                                       width: Get.width * 0.75,
                                       margin: EdgeInsets.only(
-                                          right: 5, left: index == 0 ? 5 : 0),
+                                        right: 5,
+                                        left: index == 0 ? 5 : 0,
+                                      ),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(16),
                                         image: DecorationImage(
@@ -85,15 +88,29 @@ class Homepage extends StatelessWidget {
                               itemCount: controller.interns.length,
                               itemBuilder: (context, index) {
                                 InternModel intern = controller.interns[index];
-                                return ListTile(
-                                  leading: Image.network(intern.dIcon),
-                                  title: Text(
-                                    intern.fullName,
-                                  ),
-                                  subtitle: Text(intern.emailAddress),
-                                  trailing: IconButton(
-                                    icon: const Icon(Icons.call),
-                                    onPressed: () {},
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            DetailPage(model: intern),
+                                      ),
+                                    );
+                                  },
+                                  child: Card(
+                                    elevation: 8,
+                                    child: ListTile(
+                                      leading: Image.network(intern.dIcon),
+                                      title: Text(
+                                        intern.fullName,
+                                      ),
+                                      subtitle: Text(intern.emailAddress),
+                                      trailing: IconButton(
+                                        icon: const Icon(Icons.call),
+                                        onPressed: () {},
+                                      ),
+                                    ),
                                   ),
                                 );
                               },

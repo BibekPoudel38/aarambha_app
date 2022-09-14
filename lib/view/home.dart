@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/controller/home_controller_2.dart';
@@ -18,7 +20,17 @@ class Home extends StatelessWidget {
                 ElevatedButton(
                   child: const Text("Press"),
                   onPressed: () {
-                    controller.loadIntern();
+                    // controller.loadIntern();
+                    HomeController2 hc2 = HomeController2();
+                    hc2.loadIntern();
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text("Press Again"),
+                  onPressed: () {
+                    // controller.loadIntern();
+                    HomeController2 hc2 = HomeController2();
+                    log(hc2.interns.length.toString());
                   },
                 ),
                 controller.internsLoading

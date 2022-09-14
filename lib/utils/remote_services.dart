@@ -18,12 +18,17 @@ class RemoteService {
     return response;
   }
 
+  Future<Response> fetchInternDetail(int id) async {
+    String url = "$baseUrl/api/read_interns.php?id=$id";
+    var response = Dio().get(url);
+    return response;
+  }
+
   Future<Response> fetchDepartments() async {
     String url = "$baseUrl/api/read_departments.php";
     var response = Dio().get(
       url,
     );
-
     return response;
   }
 }

@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:myapp/view/home.dart';
 import 'package:myapp/view/homepage.dart';
 import 'package:myapp/view/login.dart';
 import 'package:myapp/view/signup.dart';
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const Home(),
+      home: const Homepage(),
       routes: {
         '/homepage': (_) => const Homepage(),
         '/signup': (_) => const SignUpPage(),

@@ -7,10 +7,14 @@ import 'package:myapp/model/intern_model.dart';
 import 'package:myapp/utils/remote_services.dart';
 
 class HomeController2 extends GetxController {
+  @override
+  void onInit() {
+    super.onInit();
+    loadIntern();
+  }
+
   bool internsLoading = false;
-
   List<InternModel> interns = [];
-
   loadIntern() async {
     internsLoading = true;
     update();
