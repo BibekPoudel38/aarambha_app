@@ -1,6 +1,7 @@
 <?php
 include "includes/header.php";
 ?>
+<h1>Dashboard</h1>
 <table class="table table-striped">
 	<tr>
 		<th class="not">Table</th>

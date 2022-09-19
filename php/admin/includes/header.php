@@ -36,22 +36,24 @@ include("includes/data.php");
 
 	<div class="wrapper">
 		<!-- Sidebar Holder -->
-		<nav id="sidebar" class="bg-primary" style="background-color: purple;">
-			<div class="sidebar-header">
-				<h3>
-					Admin Panel<br>
-					<i id="sidebarCollapse" class="glyphicon glyphicon-circle-arrow-left"></i>
+		<nav id="sidebar" class="bg-primary" style="background-color: white;">
+			<div class="sidebar-header" style="text-align: center; background-color:#913d88">
+				<h3 style="color: white;font-weight: 900; opacity: 0.2px;">
+					Aarambha Admin<br>
+					<!-- <i id="sidebarCollapse" class="glyphicon glyphicon-circle-arrow-left"></i> -->
 				</h3>
-				<strong>
-					Aarambha<br>
-					<i id="sidebarExtend" class="glyphicon glyphicon-circle-arrow-right"></i>
-				</strong>
+				<img src="https://cdn-icons-png.flaticon.com/512/6489/6489458.png" alt="icon" height="100px">
+				<h3 style="color: white;font-weight: 900;">
+					Dashboard
+
+				</h3>
+
 			</div><!-- /sidebar-header -->
 
 			<!-- start sidebar -->
 			<ul class="list-unstyled components">
-				<li class="list-group-item list-group-item-action"><a href="home.php" style="color: black;"> <img src="assets/home.png" class="pull-left" height="20px" width="20px">
-						&nbsp;&nbsp;&nbsp; HOME</span>
+				<li class="list-group-item list-group-item-action"><a href="home.php" style="color: black;"> <img src="https://cdn-icons-png.flaticon.com/512/3408/3408591.png" class="pull-left" height="20px" width="20px">
+						&nbsp;&nbsp;&nbsp; Dashboard</span>
 					</a>
 				</li>
 				<!-- <li>
@@ -60,15 +62,18 @@ include("includes/data.php");
 						Home
 					</a>
 				</li> -->
-
-				<li><a href="attendence.php"> <i class="glyphicon glyphicon-magnet"></i>Attendence <span class="pull-right"><?= counting("attendence", "id") ?></span></a></li>
-				<li><a href="department.php"> <i class="glyphicon glyphicon-option-vertical"></i>Department <span class="pull-right"><?= counting("department", "id") ?></span></a></li>
-				<li><a href="interns.php"> <i class="glyphicon glyphicon-tree-deciduous"></i>Interns <span class="pull-right"><?= counting("interns", "id") ?></span></a></li>
-				<li><a href="profile.php"> <i class="glyphicon glyphicon-share"></i>Profile <span class="pull-right"><?= counting("profile", "id") ?></span></a></li>
-				<li><a href="resources.php"> <i class="glyphicon glyphicon-tower"></i>Resources <span class="pull-right"><?= counting("resources", "id") ?></span></a></li>
-				<li><a href="types.php"> <i class="glyphicon glyphicon-qrcode"></i>Types <span class="pull-right"><?= counting("types", "id") ?></span></a></li>
-				<li><a href="users.php"> <i class="glyphicon glyphicon-retweet"></i>Users <span class="pull-right"><?= counting("users", "id") ?></span></a></li>
-				<li><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+				<li class="list-group-item list-group-item-action"><a href="attendence.php" style="color: black;"> <img src="https://cdn-icons-png.flaticon.com/512/3125/3125856.png" class="pull-left" height="20px" width="20px">
+						&nbsp;&nbsp;&nbsp; Attendence</span><span class="pull-right"><?= counting("attendence", "id") ?></span>
+					</a>
+				</li>
+				<!-- <li><a href="attendence.php"> <i class="glyphicon glyphicon-magnet"></i>Attendence <span class="pull-right"><?= counting("attendence", "id") ?></span></a></li> -->
+				<li class="list-group-item list-group-item-action"><a href="department.php" style="color: black;"> <img src="https://cdn-icons-png.flaticon.com/512/1570/1570970.png" class="pull-left" height="20px" width="20px">&nbsp;&nbsp;&nbsp; Department <span class="pull-right"><?= counting("department", "id") ?></span></a></li>
+				<li class="list-group-item list-group-item-action"><a href="interns.php" style="color: black;"><img src="https://cdn-icons-png.flaticon.com/512/5351/5351253.png" class="pull-left" height="20px" width="20px">&nbsp;&nbsp;&nbsp; Interns <span class="pull-right"><?= counting("interns", "id") ?></span></a></li>
+				<li class="list-group-item list-group-item-action"><a href="profile.php" style="color: black;"><img src="https://cdn-icons-png.flaticon.com/512/1144/1144709.png" class="pull-left" height="20px" width="20px">&nbsp;&nbsp;&nbsp; Profile <span class="pull-right"><?= counting("profile", "id") ?></span></a></li>
+				<li class="list-group-item list-group-item-action"><a href="resources.php" style="color: black;"><img src="https://cdn-icons-png.flaticon.com/512/5966/5966044.png" class="pull-left" height="20px" width="20px">&nbsp;&nbsp;&nbsp; Resources <span class="pull-right"><?= counting("resources", "id") ?></span></a></li>
+				<li class="list-group-item list-group-item-action"><a href="types.php" style="color: black;"><img src="https://cdn-icons-png.flaticon.com/512/439/439150.png" class="pull-left" height="20px" width="20px">&nbsp;&nbsp;&nbsp; Types <span class="pull-right"><?= counting("types", "id") ?></span></a></li>
+				<li class="list-group-item list-group-item-action"><a href="users.php" style="color: black;"><img src="https://cdn-icons-png.flaticon.com/512/1165/1165674.png" class="pull-left" height="20px" width="20px">&nbsp;&nbsp;&nbsp; Users <span class="pull-right"><?= counting("users", "id") ?></span></a></li>
+				<li class="list-group-item list-group-item-action"><a href="logout.php" style="color: black;"><img src="https://cdn-icons-png.flaticon.com/512/6568/6568636.png" class="pull-left" height="20px" width="20px">&nbsp;&nbsp;&nbsp; Logout</a></li>
 			</ul>
 
 			<!-- <div class="visit">

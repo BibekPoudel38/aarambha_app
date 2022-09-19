@@ -21,7 +21,7 @@ include "includes/header.php";
 			<th>Color</th>
 
 			<th class="not">Edit</th>
-			<th class="not">Delete</th>
+			<!-- <th class="not">Delete</th> -->
 		</tr>
 	</thead>
 
@@ -40,7 +40,7 @@ include "includes/header.php";
 			<td><img src="assets/<?php echo $departments['icon'] ?>" height="100"></td>
 			<td><?php echo $departments['color'] ?></td>
 			<td><a href="edit-department.php?act=edit&id=<?php echo $departments['id'] ?>"><i class="glyphicon glyphicon-edit"></i></a></td>
-			<td><a href="save.php?act=delete&id=<?php echo $departments['id'] ?>&cat=department" onclick="return navConfirm(this.href);"><i class="glyphicon glyphicon-trash"></i></a></td>
+			<!-- <td><a href="save.php?act=delete&id=<?php echo $departments['id'] ?>&cat=department" onclick="return navConfirm(this.href);"><i class="glyphicon glyphicon-trash"></i></a></td> -->
 		</tr>
 	<?php endforeach; ?>
 </table>

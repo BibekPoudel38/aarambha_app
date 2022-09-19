@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:khalti_flutter/khalti_flutter.dart';
 import 'package:myapp/controller/homepage_controller.dart';
 import 'package:myapp/model/departments_model.dart';
 import 'package:myapp/model/intern_model.dart';
@@ -13,6 +15,30 @@ class Homepage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("AARAMBHA"),
+      ),
+      floatingActionButton: FloatingActionButton.large(
+        onPressed: () {
+          final config = PaymentConfig(
+            amount: 10000, // Amount should be in paisa
+            productIdentity: '124',
+            productName: 'Dell G5 G5510 2021',
+          );
+          KhaltiScope.of(context).pay(
+            config: config,
+            preferences: [
+              PaymentPreference.khalti,
+              PaymentPreference.connectIPS,
+              PaymentPreference.eBanking,
+              PaymentPreference.sct,
+            ],
+            onSuccess: (value) {},
+            onFailure: (value) {},
+            onCancel: () {
+              Fluttertoast.showToast(msg: "Payment cancelled");
+            },
+          );
+        },
+        child: const Icon(Icons.payment),
       ),
       body: GetBuilder<HomePageController>(
         init: HomePageController(),

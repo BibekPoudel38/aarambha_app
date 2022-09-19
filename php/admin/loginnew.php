@@ -11,7 +11,7 @@ if ($_COOKIE['auth'] == "admin_in") {
 
 <head>
     <!-- Design by foolishdeveloper.com -->
-    <title>Login</title>
+    <title>Glassmorphism login Form Tutorial in html css</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -161,7 +161,7 @@ if ($_COOKIE['auth'] == "admin_in") {
         <div class="shape"></div>
     </div>
     <form action="login.php" method="post" name="login">
-        <h2>Aarambha Admin Panel<br>Login Here</h2>
+        <h3>Login Here</h3>
 
         <label for="username">Username</label>
         <input type="text" placeholder="Email or Phone" id="username" name="email">

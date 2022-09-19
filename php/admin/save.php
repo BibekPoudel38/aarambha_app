@@ -59,17 +59,35 @@ if ($cat == "department" || $cat_get == "department") {
 			}
 		}
 	} elseif ($act == "edit") {
-		$old_banner = addslashes(htmlentities($_POST["banner_text"], ENT_QUOTES));
-		if ($addslashes(htmlentities($_POST["icon"], ENT_QUOTES))) {
-			$old_icon = addslashes(htmlentities($_POST["icon_text"], ENT_QUOTES));
+		if (isset($_FILES['icon']) && $_FILES['icon']['name'] != "") {
+			$old_icon = uploadImage('icon');
 		} else {
-			$old_icon = addslashes(htmlentities($_POST["icon"], ENT_QUOTES));
+			$old_icon = addslashes(htmlentities($_POST["icon_text"], ENT_QUOTES));
 		}
 		mysqli_query($link, "UPDATE `department` SET  `name` =  '" . $name . "' , `description` =  '" . $description . "' , `h_o_d` =  '" . $h_o_d . "' , `banner` =  '" . $old_banner . "' , `icon` =  '" . $old_icon . "' , `color` =  '" . $color . "'  WHERE `id` = '" . $id . "' ");
 	} elseif ($act_get == "delete") {
 		mysqli_query($link, "DELETE FROM `department` WHERE id = '" . $id_get . "' ");
 	}
 	header("location:" . "department.php");
+}
+
+function uploadImage($label)
+{
+	$file_name = $_FILES[$label]['name'];
+	$file_tmp_name = $_FILES[$label]['tmp_name'];
+	$error = $_FILES[$label]['error'];
+	if ($error > 0) {
+		echo ("There was an error");
+	} else {
+		$random_name = rand(1000, 1000000) . "-" . $file_name;
+		$file_upload_name = $random_name;
+		$file_upload_name = preg_replace('/\s+/', '-', $file_upload_name);
+		if (move_uploaded_file($file_tmp_name, 'assets/' . $file_upload_name)) {
+			return  $file_upload_name;
+		} else {
+			return "";
+		}
+	}
 }
 
 if ($cat == "interns" || $cat_get == "interns") {

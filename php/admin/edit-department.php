@@ -38,7 +38,7 @@ if ($act == "edit") {
 		<label>Icon</label>
 		<input class="form-control" type="file" name="icon" value="<?= $department['icon'] ?>" /><br>
 		<input class="form-control" type="hidden" name="icon_text" value="<?= $department['icon'] ?>" /><br>
-
+	
 		<label>Color</label>
 		<input class="form-control" type="color" name="color" value="<?= $department['color'] ?>" /><br>
 		<br>
